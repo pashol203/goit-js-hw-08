@@ -5,7 +5,7 @@ body {
   li {
     list-style-type: none;
   }
-  .gellery {
+  .gallery {
     display: flex;
     flex-wrap: wrap;
     gap: 24px;
@@ -14,7 +14,7 @@ body {
     justify-content: center;
     max-width: 1128px;
   }
-  .gellery-image {
+  .gallery-image {
     display: block;
     width: 360px;
     height: 200px;
@@ -23,6 +23,6 @@ body {
     transition: transform 0.3s ease;
   }
   
-  .gellery-image:hover {
+  .gallery-image:hover {
     transform: scale(1.1);
   }

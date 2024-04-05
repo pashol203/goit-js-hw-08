@@ -64,14 +64,15 @@ const images = [
   },
 ];
 
-const gellery = document.querySelector(".gellery");
-function imageGellery() {
+const gallery = document.querySelector(".gallery");
+let = instance;
+function imageGallery() {
   const image = images
     .map(({ preview, original, description }) => {
-      return `<li class="gellery-item">  
-     <a class="class=gellery-item" href= "${original}"> 
+      return `<li class="gallery-item">  
+     <a class="class=gallery-item" href= "${original}"> 
     
-     <img class="gellery-image" 
+     <img class="gallery-image" 
      src="${preview}" 
      data-source="${original}" 
      alt="${description}" 
@@ -80,12 +81,12 @@ function imageGellery() {
      </li>`;
     })
     .join("\n");
-  gellery.innerHTML = image;
-  gellery.addEventListener("click", handleImageClick);
+  gallery.innerHTML = image;
+  gallery.addEventListener("click", handleImageClick);
 }
 function handleImageClick(e) {
   const targetImage = e.target;
-  if (targetImage.classList.contains("gellery-image")) {
+  if (targetImage.classList.contains("gallery-image")) {
     e.preventDefault();
     const largeImageSource = targetImage.dataset.source;
     const imageAlt = targetImage.getAttribute("alt");
@@ -93,19 +94,19 @@ function handleImageClick(e) {
       `<img src="${largeImageSource}" alt= Large image: "${imageAlt}"/>`,
       {
         onShow: () => {
-          document.addEventListener("keydown", hadleKeyPress);
+          document.addEventListener("keydown", handleKeyPress);
         },
         onClose: () => {
-          document.removeEventListener("keydown", hadleKeyPress);
+          document.removeEventListener("keydown", handleKeyPress);
         },
       }
     );
     instance.show();
   }
 }
-function hadleKeyPress(event) {
+function handleKeyPress(event) {
   if (event.key === "Escape") {
     instance.close();
   }
 }
-imageGellery();
+imageGallery();
